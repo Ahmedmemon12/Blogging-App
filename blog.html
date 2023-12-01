@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Burst</title>
+    <link rel="stylesheet" href="Blog.css">
+    <link rel="icon" href="noframe_256.png" type="img/png">
+    <style>.group {
+      position: relative;
+     }
+     
+     .input {
+      font-size: 16px;
+      padding: 10px 10px 10px 5px;
+      display: block;
+      width: 200px;
+      border: none;
+      background: transparent;
+     }
+     
+     .input:focus {
+      outline: none;
+     }
+     
+     label {
+      color: #999;
+      font-size: 18px;
+      font-weight: normal;
+      position: absolute;
+      pointer-events: none;
+      left: 5px;
+      top: 10px;
+      transition: 0.2s ease all;
+      -moz-transition: 0.2s ease all;
+      -webkit-transition: 0.2s ease all;
+     }
+     
+     .input:focus ~ label, .input:valid ~ label {
+      top: -20px;
+      font-size: 14px;
+      color: #5264AE;
+     }
+     
+     .bar {
+      position: relative;
+      display: block;
+      width: 200px;
+     }
+     
+     .bar:before, .bar:after {
+      content: '';
+      height: 2px;
+      width: 0;
+      bottom: 1px;
+      position: absolute;
+      background: #5264AE;
+      transition: 0.2s ease all;
+      -moz-transition: 0.2s ease all;
+      -webkit-transition: 0.2s ease all;
+     }
+     
+     .bar:before {
+      left: 50%;
+     }
+     
+     .bar:after {
+      right: 50%;
+     }
+     
+     .input:focus ~ .bar:before, .input:focus ~ .bar:after {
+      width: 50%;
+     }
+     
+     .highlight {
+      position: absolute;
+      height: 60%;
+      width: 100px;
+      top: 25%;
+      left: 0;
+      pointer-events: none;
+      opacity: 0.5;
+     }
+     
+     .input:focus ~ .highlight {
+      animation: inputHighlighter 0.3s ease;
+     }
+     
+     @keyframes inputHighlighter {
+      from {
+       background: #5264AE;
+      }
+     
+      to {
+       width: 0;
+       background: transparent;
+      }
+     }</style>
+</head>
+<body style="display: block;">  
+
+    <div class="header">
+      <button id="authentication" style="display: none;">LogIn</button>
+      <button id="addBlog" style="margin:0px 20px;">Add Blog </button>
+    <button id="signOut" style="display: none;">Log Out</button>
+    </div>
+
+    <form class="blogform" id="blogForm" style="display: none;">
+      <button id="hideForm" style="font-family: cursive;">X</button>
+      <div class="inputs">
+        <h1>Blog Info</h1>
+        <div class="group">
+            <input required="" type="text" class="input">
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>Blog Title</label>
+          </div>
+          <br>
+          <div class="group">
+            <input required="" type="text" class="input">
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>Blog Description</label>
+          </div>
+          <input type="file" id="fileInput" accept="image/*">
+          <div id="fileDisplay"></div>
+        <input type="submit">
+      </div>
+        </form>
+    <script type="module" src="Blog.js"></script>
+    <script src="function.js"></script>
+</body>
+</html>
